@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trần Tấn Tài | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00111a, #002b20);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(0, 20, 30, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      z-index: 100;
+      transition: top 0.4s ease;
+    }
+
+    header.hidden {
+      top: -90px;
+    }
+
+  header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00f0ff, #00ffc6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* tạo hiệu ứng chuyển màu neon */
+  text-shadow: 0 0 10px rgba(0, 255, 198, 0.3);
+  transition: transform 0.3s ease;
+}
+
+header h2:hover {
+  transform: scale(1.05);
+}
+
+nav a {
+  text-decoration: none;
+  color: #e0faff; /* trắng xanh nhạt */
+  margin-left: 25px;
+  font-weight: 600;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+  color: #00ffc6; /* xanh neon khi hover */
+  text-shadow: 0 0 8px rgba(0, 255, 198, 0.6);
+}
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 120px 10%;
+    }
+
+    .hero-left {
+      flex: 1;
+      animation: fadeInLeft 1s ease;
+    }
+
+.hero-left h3 {
+  font-size: 28px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  color: #b3fff0; 
+}
+.hero-text h2 {
+  font-size: 32px; /* dòng "Xin chào, tôi là" */
+  font-weight: 600;
+  color: #ccefe8;
+  margin-bottom: 10px;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  line-height: 1.2;
+  margin: 15px 0;
+  background: linear-gradient(90deg, #ffffff, #00ffc6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* hiệu ứng gradient chữ */
+}
+
+
+.hero-left span {
+  color: #00ffc6; /* phần tên nổi bật */
+}
+
+.typing {
+  color: #00ffc6; /* hiệu ứng chữ gõ cũng xanh neon */
+  font-weight: bold;
+}
+
+.hero-left p {
+  font-size: 30px;
+  margin-top: 10px;
+  opacity: 0.8;
+  color: #aaffee; /* nhạt hơn một chút */
+}
+
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      animation: fadeInRight 1s ease;
+    }
+
+    .hero-right img {
+      width: 320px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
+      transition: transform 0.4s ease;
+    }
+
+    .hero-right img:hover {
+      transform: scale(1.05);
+    }
+
+    /* SECTION STYLES */
+    section {
+      min-height: 100vh;
+      padding: 120px 10%;
+    }
+
+h2 {
+  font-size: 38px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00f0ff, #00ffc6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0, 255, 198, 0.3);
+  letter-spacing: 1px;
+  animation: glow 2s infinite alternate;
+}
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* ABOUT */
+  .about-section {
+  background: linear-gradient(145deg, #001a12, #002b1f);
+  color: #fff;
+  padding: 120px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 480px;
+  animation: fadeInLeft 1s ease;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  color: #00ff88;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  line-height: 1.7;
+  font-size: 17px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-button:hover {
+  background: rgba(0, 255, 136, 0.25);
+}
+
+.tab-button.active {
+  background: linear-gradient(90deg, #00ff88, #00e0ff);
+  color: #001a12;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.about-image {
+  flex: 1 1 350px;
+  text-align: right;
+  animation: fadeInRight 1s ease;
+}
+
+.about-image img {
+  width: 340px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-image {
+    text-align: center;
+  }
+}
+
+
+    /* SKILLS */
+.skills-section {
+  padding: 80px 10%;
+  background: #022b26;
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #00ffcc;
+  margin-bottom: 50px;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  background: rgba(0, 255, 204, 0.1);
+}
+
+.skill-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.skill-card p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+
+    /* PROJECTS */
+    .projects-section {
+  padding: 60px 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #111;
+  border: 2px solid #00ffee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ffee;
+}
+
+.project-card img {
+  width: 50%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+    /* CONTACT */
+.contact-section {
+  padding: 80px 0;
+  background: linear-gradient(145deg, #0a0a0a, #131313);
+  color: #fff;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact-info h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.contact-info i {
+  color: #00fff7;
+  font-size: 20px;
+}
+
+.social-icons {
+  margin: 25px 0;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin-right: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00fff7;
+  transform: scale(1.2);
+}
+
+.cv-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #00fff7;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cv-btn:hover {
+  background: #00fff7;
+  transform: translateY(-2px);
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #1c1c1c;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888;
+}
+
+.submit-btn {
+  padding: 14px 0;
+  background: #00fff7;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #00fff7;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-info {
+    margin-bottom: 40px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(255,255,255,0.05);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+@keyframes glow {
+  from { text-shadow: 0 0 8px rgba(0, 255, 198, 0.3); }
+  to { text-shadow: 0 0 16px rgba(0, 255, 198, 0.7); }
+}
+    @keyframes fadeInLeft {
+      from {opacity: 0; transform: translateX(-50px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    @keyframes fadeInRight {
+      from {opacity: 0; transform: translateX(50px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-right {
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <h2>Trần Tấn Tài</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <h3>Hello, I'm</h3>
+      <h1>Trần Tấn <span>Tài</span></h1>
+      <h3 class="typing"></h3>
+      <p>From Ho Chi Minh City, Vietnam 🌏</p>
+    </div>
+    <div class="hero-right">
+      <img src="anh1.jpg" alt="Trần Tấn Tài" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I am a second year Information Technology student at Binh Duong University BDU, majoring in web development. 
+          With a strong passion for building clean, user-friendly and responsive websites, I am constantly exploring new technologies to improve my programming skills.
+        </p>
+
+        <div class="tabs">
+          <button class="tab-button active" data-tab="skills">Skills</button>
+          <button class="tab-button" data-tab="experience">Experience</button>
+          <button class="tab-button" data-tab="education">Education</button>
+          <button class="tab-button" data-tab="hobby">Hobby</button>
+        </div>
+
+        <div class="tab-content active" id="skills">
+          <p><strong>Front-End:</strong> HTML, CSS, JavaScript, React</p>
+          <p><strong>Back-End:</strong> Node.js, Python, SQL</p>
+          <p><strong>App Dev:</strong> Android/iOS (Flutter)</p>
+        </div>
+
+        <div class="tab-content" id="experience">
+          <p><strong> - </strong> Intern Web Developer at Creative Studio.</p>
+          <p><strong> - </strong> Built responsive websites as a freelance developer.</p>
+        </div>
+
+        <div class="tab-content" id="education">
+          <p><strong> - </strong> Binh Duong University BDU</strong></p>
+          <p><strong> - </strong>Second year student majoring in Information Technology</p>
+        </div>
+
+        <div class="tab-content" id="hobby">
+          <p>Listening to music, sports, playing games. Especially I like coding, and creating UI animations for fun.p>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="anh2.png" alt="Your Photo">
+      </div>
+    </div>
+  </div>
+
+  <!-- Kết nối file CSS & JS -->
+  <link rel="stylesheet" href="about.css">
+  <script>
+  // Hiệu ứng gõ chữ
+  const texts = ["UI/UX Designer", "Web Developer", "Frontend Developer"];
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+  const typingElement = document.querySelector(".typing");
+
+  function type() {
+    if (count === texts.length) count = 0;
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+    typingElement.textContent = letter;
+    if (letter.length === currentText.length) {
+      setTimeout(() => {
+        index = 0;
+        count++;
+        type();
+      }, 1500);
+    } else {
+      setTimeout(type, 100);
+    }
+  }
+  type();
+
+  // Ẩn thanh navbar khi cuộn
+  let prevScroll = window.pageYOffset;
+  const navbar = document.getElementById("navbar");
+  window.onscroll = function () {
+    let currentScroll = window.pageYOffset;
+    if (prevScroll < currentScroll) {
+      navbar.classList.add("hidden");
+    } else {
+      navbar.classList.remove("hidden");
+    }
+    prevScroll = currentScroll;
+  };
+
+  // 👉 Xử lý phần tab About
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      const target = button.dataset.tab;
+
+      tabContents.forEach(content => {
+        content.classList.toggle("active", content.id === target);
+      });
+    });
+  });
+</script>
+
+</section>
+
+
+
+  <!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <h2 class="section-title">My Skills</h2>
+  <div class="skills-container">
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <h3>Frontend Development</h3>
+      <p>Building responsive websites using HTML, CSS, and JavaScript to deliver interactive user experiences.</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <h3>UI/UX Design</h3>
+      <p>Designing modern interfaces with Figma and Adobe XD focusing on usability and clean aesthetics.</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <h3>Problem Solving</h3>
+      <p>Strong logical thinking for debugging and optimizing systems effectively.</p>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <h3>Teamwork</h3>
+      <p>Effective communication and collaboration can do almost anything a team sets out to do.</p>
+    </div>
+  </div>
+</section>
+<!-- Projects -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="anh3.png"Project 1">
+        <h3>A Group Project</h3>
+        <p>A website to sell books, novels, comics,...(all kinds of books) built with HTML, CSS and JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <img src="anh4.png" alt="Project 2">
+        <h3>Learning Website</h3>
+        <p>A directory website that meets the learning and document searching needs of students.</p>
+      </div>
+      <div class="project-card">
+        <img src="anh5.png" alt="Project 3">
+        <h3>Entertainment App</h3>
+        <p>A simple web application for entertainment to play games, listen to music, watch movies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <!-- Left side -->
+    <div class="contact-info">
+      <h2>Contact Me</h2>
+      <p><i class="fa-solid fa-paper-plane"></i> 24050029@student.bdu.edu.vn</p>
+      <p><i class="fa-solid fa-phone"></i> 0397142321</p>
+
+<div class="social-icons">
+  <a href="https://www.facebook.com/gak0nn" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="https://github.com/24050029-art" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+  <a href="https://discord.com/users/882230994499948625" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+
+</div>
+
+
+
+
+
+    </div>
+
+    <!-- Right side -->
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // Ngăn reload trang
+  alert("✅ Cảm ơn bạn! Tin nhắn của bạn đã được gửi thành công.");
+});
+</script>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Trần Tấn Tài | All rights reserved.
+  </footer>
+
+  <script>
+    // Typing Effect
+    const texts = ["UI/UX Designer", "Web Developer", "Frontend Developer"];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+    const typingElement = document.querySelector(".typing");
+
+    function type() {
+      if (count === texts.length) count = 0;
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      typingElement.textContent = letter;
+      if (letter.length === currentText.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+          type();
+        }, 1500);
+      } else {
+        setTimeout(type, 100);
+      }
+    }
+    type();
+
+    // Hide Navbar on scroll down
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+    window.onscroll = function() {
+      let currentScroll = window.pageYOffset;
+      if (prevScroll < currentScroll) {
+        navbar.classList.add("hidden");
+      } else {
+        navbar.classList.remove("hidden");
+      }
+      prevScroll = currentScroll;
+    };
+</script>
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      const target = button.dataset.tab;
+
+      tabContents.forEach(content => {
+        content.classList.toggle("active", content.id === target);
+      });
+    });
+  });
+</script>
+>
+
+</body>
+</html>
